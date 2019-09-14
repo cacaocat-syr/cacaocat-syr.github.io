@@ -31,4 +31,4 @@ docker cp <file>@<container ID> <file to host>
 To make copies from host to container I used the command below. Apache2.conf is an example:
 ```
 COPY ./apache2.conf /etc/apache2/
-~~~
+```
