@@ -33,4 +33,5 @@ To make copies from host to container I used the command below. Apache2.conf is 
 COPY ./apache2.conf /etc/apache2/
 ```
 
-One issue that I was not able to solve was to start the apache2 service with the dockerfile. User must manually start the apache2 service by going into the container itself
+One issue that I was not able to solve was to start the apache2 service with the dockerfile. User must manually start the apache2 service by going into the container itself.
+![apache2 not starting](https://raw.githubusercontent.com/cacaocat-syr/cacaocat-syr.github.io/master/apache2-did-not-start.PNG)
