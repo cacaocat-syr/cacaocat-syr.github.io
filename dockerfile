@@ -18,7 +18,6 @@ RUN cd /var/www/html
 RUN mkdir affinity
 RUN git clone https://github.com/csuntechlab/affinity.git /var/www/html/affinity
 RUN chown -hR www-data:www-data affinity/
-RUN mkdir /var/www/html/public
 RUN ln -s /var/www/html/affinity/public /var/www/html/public
 
 
