@@ -12,3 +12,6 @@ From what I see online when researching this issue, I shouldn’t have a problem
 The only workaround is the use docker run instead.
 
 I also forgot that sudo was not installed by default and had to do updates and upgrades along with installing ansible.
+
+Some notes I’ve learned by reading the documentation on playbooks
+  Playbooks are .yml (YAML) files
