@@ -15,9 +15,9 @@ COPY ./dir.conf /etc/apache2/mods-enabled/
 
 # Cloning Application Repo
 RUN cd /var/www/html
-RUN mkdir affinity
+RUN mkdir /var/www/html/affinity
 RUN git clone https://github.com/csuntechlab/affinity.git /var/www/html/affinity
-RUN chown -hR www-data:www-data affinity/
+RUN chown -hR www-data:www-data /var/www/html/affinity 
 RUN ln -s /var/www/html/affinity/public /var/www/html/public
 
 
