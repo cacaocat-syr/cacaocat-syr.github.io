@@ -1,44 +1,72 @@
 ---
 - hosts: 127.0.0.1
   tasks:
-   - name: install traceroute
-     apt: 
-       pkg: traceroute
-       state: latest
    - name: install updates
      apt: 
        update_cache: yes
        upgrade: full
+   - name: install traceroute
+     apt: 
+       pkg: traceroute
+       state: latest
+   - name: install sudo
+     apt: 
+       pkg: sudo
+       state: latest
    - name: create copy of sudoer file for back up
      copy:
        src: /etc/sudoers
        dest: /etc/sudoers.bak
    - name: create cit480 group
-       group:
-         name: cit480
+     group:
+       name: cit480
    - name: create admins group
-       group: 
-         name: admins
+     group: 
+       name: admins
+       state: present 
    - name: create users
-       user: 
-         name: admin1
-         password: P@sSw0Rd1!
-         groups: admins
-         state: present
-       user:
-         name: admin2
-         password: P@sSw0Rd1!
-         groups: admins
-         state: present
-       user:
-         name: user1
-         password: P@sSw0Rd1!
-         groups: cit480
-         state: present
-       user:
-         name: user2
-         password: P@sSw0Rd1!
-         groups: cit480
-         state: present
+     user: 
+       name: admin1
+       password: P@sSw0Rd1!
+       groups: admins
+       state: present
+       shell: /bin/bash
+     user:
+       name: admin2
+       password: P@sSw0Rd1!
+       groups: admins
+       state: present
+       shell: /bin/bash
+     user:
+       name: user1
+       password: P@sSw0Rd1!
+       groups: cit480
+       state: present
+       shell: /bin/bash
+     user:
+       name: user2
+       password: P@sSw0Rd1!
+       groups: cit480
+       state: present
+       shell: /bin/bash
    - name: give sudo to admins
+     lineinfile:
+       dest: /etc/sudoers
+       state: present
+       line: '%admins ALL=(ALL) ALL'
+   - name: create alias for cit480   
+     lineinfile:
+       dest: /etc/sudoers
+       state: present
+       line: 'Group_Alias CIT480 = %cit480'
+   - name: create alias for traceroute
+     lineinfile:
+       dest: /etc/sudoers
+       state: present
+       line: 'Cmd_Alias TRCROUTE = /usr/bin/traceroute'
+   - name: let cit480 use trcroute
+     lineinfile:
+       dest: /etc/sudoers
+       state: present
+       line: 'CIT480 ALL = TRCROUTE'
 

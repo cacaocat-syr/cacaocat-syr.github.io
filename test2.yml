@@ -1,0 +1,65 @@
+---
+- hosts: 127.0.0.1
+  tasks:
+  - name: install all prereqs for lamp
+    become: yes
+    apt:
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - vim
+      - git
+      - curl
+      - zip
+      - apache2
+      - mysql-client
+      - php
+      - libapache2-mod-php
+      - php-mysql
+      - php7.2-cli
+      - php7.2-curl
+      - php7.2-gd
+      - php7.2-mbstring
+      - php7.2-mysql
+      - php7.2-xml
+      - sed
+  - name: change first line dir.conf
+    become: yes
+    shell: sed -i "s%index.php %%" /etc/apache2/mods-enabled/dir.conf
+  - name: change second line dir.conf 
+    become: yes
+    shell: sed -i "s%DirectoryIndex%DirectoryIndex index.php%" /etc/apache2/mods-enabled/dir.conf
+  - name: git clone affinity
+    become: yes
+    git: repo=https://github.com/csuntechlab/affinity.git dest=/var/www/html/affinity
+  - name: permissions for affinity
+    become: yes
+    file:
+      path: "/var/www/html/affinity"
+      state: directory
+      owner: www-data
+      group: www-data
+      mode: 0755
+  - name: create symlink for affinity
+    become: yes
+    command: ln -s /var/www/html/affinity/public /var/www/html/public
+  - name: change line in default.conf 
+    become: yes
+    shell: sed -i "s%/var/www/html%/var/www/html/public%g" /etc/apache2/sites-available/000-default.conf
+  - name: change first line apache2.conf
+    become: yes
+    shell: sed -i "s%Require all denied%Require all granted%g" /etc/apache2/apache2.conf
+  - name: change second line apache2.conf
+    become: yes
+    shell: sed -i "s%Directory /var/www/%Directory /var/www/html/public%g" /etc/apache2/apache2.conf
+  - name: download composer
+    become: yes
+    shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+  - name: install composer
+    become: yes
+    command: composer install
+    args:
+      chdir: /var/www/html/affinity
+  - name: restart
+    become: yes
+    command: service apache2 restart
