@@ -1,8 +1,44 @@
 ---
 - hosts: 127.0.0.1
-  connection: local
   tasks:
    - name: install traceroute
-     command: sudo apt-get install traceroute -y
+     apt: 
+       pkg: traceroute
+       state: latest
    - name: install updates
-     command: sudo apt-get update && sudo apt-get upgrade -y
+     apt: 
+       update_cache: yes
+       upgrade: full
+   - name: create copy of sudoer file for back up
+     copy:
+       src: /etc/sudoers
+       dest: /etc/sudoers.bak
+   - name: create cit480 group
+       group:
+         name: cit480
+   - name: create admins group
+       group: 
+         name: admins
+   - name: create users
+       user: 
+         name: admin1
+         password: P@sSw0Rd1!
+         groups: admins
+         state: present
+       user:
+         name: admin2
+         password: P@sSw0Rd1!
+         groups: admins
+         state: present
+       user:
+         name: user1
+         password: P@sSw0Rd1!
+         groups: cit480
+         state: present
+       user:
+         name: user2
+         password: P@sSw0Rd1!
+         groups: cit480
+         state: present
+   - name: give sudo to admins
+
