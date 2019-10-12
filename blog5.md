@@ -11,3 +11,8 @@ Like the previous labs, I installed updates and apache2.
 I noticed that I wasn't able to ssh into my instance through another device even with the private key which is something I will look into later. 
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html
 
+This is the same for using linux subsystems. Even though I chmod 0400 the private key, it wouldn't allow me to use it.
+![perm-denied]()
+
+I decided as a workaround I would just create a separate git repository and use git clone to retrieve all the files I would need for this webserver.
+![git-clone]()
