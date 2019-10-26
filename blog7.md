@@ -1,3 +1,4 @@
+
 # Blog 7 [10.25.19]
 
 ### Splunk Introduction
@@ -7,22 +8,21 @@ Splunk is a tool that collects large amounts of machine data which you can store
 Machine data is any data that comes from every piece of technology that we use and interact with.
 
 The 5 main components of Splunk are:
-- Index Data: comes from any source
--- indexers collect data and process them to label and organise
--- data is labeled with a sourcetype which help break down data into individual events and assigns timestamps
--- data is stored in indices 
-- Monitor & Alert: creating alerts in real time
-a. monitor for specific conditions
-b. give automatic reponses and actions
-- Search & Investigate:
-a. query searches from indices
-b. uses Splunk search language
-- Report & Analyse: creating dashboards and reports
-- Add Knowledge: effects data interpretation
+ 1. Index Data: comes from any source
+- indexers collect data and process them to label and organise
+- data is labeled with a sourcetype which help break down data into individual events and assigns timestamps
+- data is stored in indices 
+ 2. Monitor & Alert: creating alerts in real time
+ - monitor for specific conditions 
+ - give automatic reponses and actions
+ 3. Search & Investigate:
+ - query searches from indices
+ - uses Splunk search language
+ 4. Report & Analyse: creating dashboards and reports
+ 5. Add Knowledge: effects data interpretation
+- adds tags
+- can be used to create reports
 
-a. adds tags
-
-b. can be used to create reports
 
 There are 3 main processing components when it comes to processing data.
 
