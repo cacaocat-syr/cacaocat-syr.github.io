@@ -19,7 +19,9 @@ a. query searches from indices
 b. uses Splunk search language
 - Report & Analyse: creating dashboards and reports
 - Add Knowledge: effects data interpretation
+
 a. adds tags
+
 b. can be used to create reports
 
 There are 3 main processing components when it comes to processing data.
