@@ -3,6 +3,8 @@
 
 ### Splunk Introduction
 
+This week I am going to talk about Splunk. I use it at work and have started doing the training online for free.
+
 Splunk is a tool that collects large amounts of machine data which you can store, search, and organize.
 
 Machine data is any data that comes from every piece of technology that we use and interact with.
