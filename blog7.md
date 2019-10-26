@@ -31,11 +31,13 @@ Indexers
 - adds structure to data
 - stores data into indices as events
 - organised by age into directories
+
 Search Heads
 - handle search requests and distributes between indexers 
 - indexers perform the search and return results to the search heads
 - search heads return processed results to users
 - search heads also handle dashboards and charts for users
+
 Forwarders
 - sends data to the indexers for sorting
 - requires minimal resources
