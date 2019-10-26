@@ -12,15 +12,15 @@ The 5 main components of Splunk are:
 -- data is labeled with a sourcetype which help break down data into individual events and assigns timestamps
 -- data is stored in indices 
 - Monitor & Alert: creating alerts in real time
--- monitor for specific conditions
--- give automatic reponses and actions
+a. monitor for specific conditions
+b. give automatic reponses and actions
 - Search & Investigate:
--- query searches from indices
--- uses Splunk search language
+a. query searches from indices
+b. uses Splunk search language
 - Report & Analyse: creating dashboards and reports
 - Add Knowledge: effects data interpretation
--- adds tags
--- can be used to create reports
+a. adds tags
+b. can be used to create reports
 
 There are 3 main processing components when it comes to processing data.
 
