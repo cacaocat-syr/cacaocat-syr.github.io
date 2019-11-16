@@ -9,17 +9,18 @@ Follow the instructions below to create Key Pairs and importing them into AWS.
 In order to SSH into your EC2 instances, you will need to create a Key Pair. If you are using Terraform to automate every thing you might be finding yourself asking how will you be able to SSH into it now that it has been created?
 
 In short, you won't be able to SSH without your key as you will run into the error below:
-![perm-denied-pub-key]()
+![perm-denied-pub-key](https://raw.githubusercontent.com/cacaocat-syr/cacaocat-syr.github.io/master/Images/project1-permissiondeniedpubkey.PNG)
 
 Somewhere in my previous posts, we've talked about how to create Key Pairs through the AWS console. Now I will show you how to create these keys with Terraform and PuttyGen.
 
 First, open up PuttyGen. We will be using this to generate our Key Pair. Click on Generate. It will inform you to move your cursor around the PuttyGen window.
 Once it is done generating your key, you will want to save your private key.
+![putty-gen-key](https://raw.githubusercontent.com/cacaocat-syr/cacaocat-syr.github.io/master/Images/project1-puttygenkeypair.PNG)
 - ##### For Windows Users using PuTTY
 	- Save the private key by clicking on "Save private key". You will be saving a .ppk file for you to use with PuTTY.
 - ##### For Linux Users using the SSH command
 	- Save the private key by clicking on  "Conversions" on the menu bar. Then click on "Export OpenSSH Key". Name your key and make sure to end it with ".pem". You will be saving a .pem file for linux users to use with SSH instead of having them install PuTTY.
-	- ![putty-gen-conversion]()
+	- ![putty-gen-conversion](https://raw.githubusercontent.com/cacaocat-syr/cacaocat-syr.github.io/master/Images/project1-puttygenkeypem.png)
 
 In the "Public key for pasting into OpenSSH authorized_keys file:" window, copy every thing in the window and save it somewhere for you to paste it into the authorized_keys file later. If you somehow lose it, load your private key into PuttyGen again to retrieve your public key.
 
