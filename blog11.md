@@ -1,4 +1,4 @@
-# Blog 11 [11.22.2019]
+# Blog 11 [11.22.19]
 
 ### Splunk Best Practices 
 When it comes to performing searches in Splunk, you may notice that the more data that is stored and indexed, the longer it may take to execute your search. Since Splunk can ingest large amounts of data, it can take a long time to perform one search. There are ways of making your searches more efficient. 
