@@ -25,3 +25,5 @@ else
 
 
 - ```None``` Key 
+
+- ```in``` Operator
