@@ -20,7 +20,7 @@ Output:
 ```
 Today's Date Format is: 03132020_215102
 ```
-FYI ```.strptime()``` is a legacy function.
+```.strptime()``` is a legacy function.
 
 #### Resources
 - https://strftime.org/
