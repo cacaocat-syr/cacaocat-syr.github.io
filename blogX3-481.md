@@ -1,4 +1,4 @@
-# Blog 6 [3.13.2020]
+# Blog x [3.13.2020]
 
 ### Python: Useful Common Functions
 
